@@ -40,6 +40,7 @@ public class UniversiteServiceImpl implements IUniversiteService {
        Universite universite = universiteRepository.findById(idUniversite).orElseThrow(()-> new RuntimeException("universite n'existe pas"));
        Foyer foyer = universite.getFoyer();
        if (foyer==null){
+
            throw new RuntimeException("universite n'a pas de foyer");
        }
        universite.setFoyer(null);
