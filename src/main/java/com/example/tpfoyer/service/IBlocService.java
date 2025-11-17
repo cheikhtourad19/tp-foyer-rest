@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IBlocService {
 
-    public List<Bloc> getAllBloc();
+    List<Bloc> getAllBloc();
 
 }

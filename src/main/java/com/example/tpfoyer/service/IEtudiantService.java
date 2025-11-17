@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IEtudiantService {
 
-    public List<Etudiant> getEtudiant();
+    List<Etudiant> getEtudiant();
 
 }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IReservationService {
 
-    public List<Reservation> getReservation();
+    List<Reservation> getReservation();
 }

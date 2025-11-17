@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IFoyerService {
 
-    public List<Foyer> getFoyer();
+    List<Foyer> getFoyer();
 
 
 }
