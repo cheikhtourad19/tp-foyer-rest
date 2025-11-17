@@ -34,4 +34,20 @@ public class UniversiteServiceImpl implements IUniversiteService {
         foyerRepository.save(foyer);
         return universite;
     }
+
+    @Override
+    public boolean desAffecterFoyerAUniversite(Long idFoyer, String nomUniversite) {
+        Universite universite =universiteRepository.findByNomUniversite(nomUniversite).orElseThrow(()-> new RuntimeException(" universite n'existe pas"));
+        Foyer foyer =foyerRepository.findById(idFoyer).orElseThrow(()-> new RuntimeException("foyer n'existe pas"));
+
+        if (foyer.getUniversite().getIdUniversite()!= universite.getIdUniversite() || universite.getFoyer().getIdFoyer()!=foyer.getIdFoyer()){
+            System.out.println("des elements ne sont pas affecter affecter");
+            return false;
+        }
+        universite.setFoyer(null);
+        foyer.setUniversite(null);
+        universiteRepository.save(universite);
+        foyerRepository.save(foyer);
+        return true;
+    }
 }

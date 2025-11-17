@@ -5,6 +5,7 @@ import com.example.tpfoyer.entity.Universite;
 public interface IUniversiteService {
 
 
-    public Universite getUniversite();
+    Universite getUniversite();
     Universite affecterFoyerAUniversite(Long idFoyer,String nomUniversite);
+    boolean desAffecterFoyerAUniversite(Long idFoyer,String nomUniversite);
 }
