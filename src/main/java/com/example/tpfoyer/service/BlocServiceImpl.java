@@ -32,17 +32,21 @@ public class BlocServiceImpl implements IBlocService{
         if (bloc.getChambres()==null) {
             bloc.setChambres(new ArrayList<>());
         }
-        numChambre.forEach(chambre->{
-            chambreRepository.findBynumerochambre(chambre)
-                    .ifPresent(
-                    ch -> {
-                        if (!ch.getBloc().getIdBloc().equals(idBloc)) {
-                            bloc.getChambres().add(ch);
+        List<Chambre> chambres = chambreRepository.findAllBynumerochambre(numChambre);
+        if(chambres.size()!=numChambre.size()) {
+            throw new RuntimeException("Une ou plusieur chambre n'existe pas ");
+        }
+        chambres.forEach(chambre->
+                {
+                    if (chambre.getBloc().getIdBloc()==null) {
+                        bloc.getChambres().add(chambre);
+                    } else {
+                        if (chambre.getBloc().getIdBloc()!=idBloc) {
+                            throw new RuntimeException("Chambre appartient a d'autre bloc");
                         }
                     }
-            );
-
-        });
+                }
+        );
         return blocRepository.save(bloc);
     }
 }
