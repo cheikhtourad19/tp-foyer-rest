@@ -25,7 +25,7 @@ public class UniversiteServiceImpl implements IUniversiteService {
         Foyer foyer =foyerRepository.findById(idFoyer).orElseThrow(()-> new RuntimeException("foyer n'existe pas"));
 
         if (foyer.getUniversite()!=null||universite.getFoyer()!=null){
-            throw new RuntimeException("ces elements ont deja ete affecter");
+            throw new RuntimeException("ces elements ont deja ete affecter") ;
         }
 
         universite.setFoyer(foyer);
