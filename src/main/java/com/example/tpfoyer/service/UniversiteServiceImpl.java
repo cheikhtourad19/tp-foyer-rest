@@ -46,7 +46,7 @@ public class UniversiteServiceImpl implements IUniversiteService {
        foyer.setUniversite(null);
        universiteRepository.save(universite);
        foyerRepository.save(foyer);
-       return universite;
+       return universite ;
     }
 
 
