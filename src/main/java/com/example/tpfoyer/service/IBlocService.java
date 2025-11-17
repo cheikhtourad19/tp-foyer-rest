@@ -8,5 +8,6 @@ import java.util.List;
 public interface IBlocService {
 
     List<Bloc> getAllBloc();
+    Bloc affecterChambreABloc(List<Long> numChambre,long idBloc);
 
 }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,7 +24,7 @@ public class Bloc implements Serializable {
     private Foyer foyer;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "bloc", fetch = FetchType.EAGER)
-    private Set<Chambre> chambres;
+    private List<Chambre> chambres;
 }
 
 
