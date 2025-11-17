@@ -7,5 +7,5 @@ public interface IUniversiteService {
 
     Universite getUniversite();
     Universite affecterFoyerAUniversite(Long idFoyer,String nomUniversite);
-    boolean desAffecterFoyerAUniversite(Long idFoyer,String nomUniversite);
+    Universite desAffecterFoyerAUniversite(Long idUniversite);
 }
