@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,5 +23,5 @@ public class Reservation implements Serializable {
     @ManyToOne()
     private Chambre chambre;
     @ManyToMany(mappedBy = "reservations")
-    private Set<Etudiant> etudiants;
+    private List<Etudiant> etudiants;
 }
