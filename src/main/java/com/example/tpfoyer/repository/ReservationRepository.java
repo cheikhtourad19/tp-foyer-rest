@@ -10,5 +10,5 @@ import java.util.List;
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
     Reservation findByEtudiantsContains(Etudiant etudiant);
-    List<Reservation> findByAnneeUniversiteAndChambreBlocFoyerUniversiteNomUniversite(Date annee,String nomUniversite);
+    List<Reservation> findByAnneUnniversitaireAndChambreBlocFoyerUniversiteNomUniversite(Date annee,String nomUniversite);
 }

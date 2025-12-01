@@ -93,6 +93,6 @@ public class ReservationServiceImpl implements IReservationService {
 
     @Override
     public List<Reservation> getReservationParAnneeUniversitaireEtNomUniversite(Date anneeUniversite, String nomUniversite) {
-        return reservationRepository.findByAnneeUniversiteAndChambreBlocFoyerUniversiteNomUniversite(anneeUniversite,nomUniversite);
+        return reservationRepository.findByAnneUnniversitaireAndChambreBlocFoyerUniversiteNomUniversite(anneeUniversite,nomUniversite);
     }
 }
