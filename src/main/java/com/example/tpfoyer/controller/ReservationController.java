@@ -27,7 +27,7 @@ public class ReservationController {
 
     }
     @PostMapping
-    public Reservation ajouterReservation(@RequestBody long idBloc, @RequestBody String cinEtudiant) {
+    public Reservation ajouterReservation(@RequestBody long idBloc, @RequestBody long cinEtudiant) {
         return this.reservationService.ajouterReservation(idBloc,cinEtudiant);
     }
     @PutMapping

@@ -32,7 +32,7 @@ public class ReservationServiceImpl implements IReservationService {
 
 
     @Override
-    public Reservation ajouterReservation(long idBloc, String cinEtudiant) {
+    public Reservation ajouterReservation(long idBloc, long cinEtudiant) {
         Bloc bloc = blocRepository.findById(idBloc).orElseThrow(()->new RuntimeException("bloc n'existe pas"));
         List <Chambre> chambres = chambreRepository.findAllByBloc(bloc);
 
@@ -71,7 +71,7 @@ public class ReservationServiceImpl implements IReservationService {
 
     @Override
     public Reservation annulerReservation(long cinEtudiant) {
-        Etudiant etudiant = etudiantRepository.findByCin(String.valueOf(cinEtudiant));
+        Etudiant etudiant = etudiantRepository.findByCin(cinEtudiant);
         if(etudiant==null){
             throw new RuntimeException("Pas de etudiant pour ce cin");
         }

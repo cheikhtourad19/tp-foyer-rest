@@ -25,27 +25,27 @@ public class BlocServiceImpl implements IBlocService{
         return this.blocRepository.findAll();
     }
 
-    @Override
-    public Bloc affecterChambreABloc(List<Long> numChambre, long idBloc) {
-        Bloc bloc = blocRepository.findById(idBloc).orElseThrow(()->new RuntimeException("Bloc n'existe pas"));
-        if (bloc.getChambres()==null) {
-            bloc.setChambres(new ArrayList<>());
-        }
-        List<Chambre> chambres = chambreRepository.findAllBynumerochambre(numChambre);
-        if(chambres.size()!=numChambre.size()) {
-            throw new RuntimeException("Une ou plusieur chambre n'existe pas ");
-        }
-        chambres.forEach(chambre->
-                {
-                    if (chambre.getBloc().getIdBloc()==null) {
-                        bloc.getChambres().add(chambre);
-                    } else {
-                        if (chambre.getBloc().getIdBloc()!=idBloc) {
-                            throw new RuntimeException("Chambre appartient a d'autre bloc");
-                        }
-                    }
-                }
-        );
-        return blocRepository.save(bloc);
-    }
+//    @Override
+//    public Bloc affecterChambreABloc(List<Long> numChambre, long idBloc) {
+//        Bloc bloc = blocRepository.findById(idBloc).orElseThrow(()->new RuntimeException("Bloc n'existe pas"));
+//        if (bloc.getChambres()==null) {
+//            bloc.setChambres(new ArrayList<>());
+//        }
+//        List<Chambre> chambres = chambreRepository.findByNumerochambre(numChambre);
+//        if(chambres.size()!=numChambre.size()) {
+//            throw new RuntimeException("Une ou plusieur chambre n'existe pas ");
+//        }
+//        chambres.forEach(chambre->
+//                {
+//                    if (chambre.getBloc().getIdBloc()==null) {
+//                        bloc.getChambres().add(chambre);
+//                    } else {
+//                        if (chambre.getBloc().getIdBloc()!=idBloc) {
+//                            throw new RuntimeException("Chambre appartient a d'autre bloc");
+//                        }
+//                    }
+//                }
+//        );
+//        return blocRepository.save(bloc);
+//    }
 }
