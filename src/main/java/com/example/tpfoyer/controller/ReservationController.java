@@ -5,6 +5,7 @@ import com.example.tpfoyer.entity.Reservation;
 import com.example.tpfoyer.entity.TypeChambre;
 import com.example.tpfoyer.service.ReservationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -22,7 +23,7 @@ public class ReservationController {
         return reservationService.getReservation();
     }
     @GetMapping("/getReservation")
-    public List<Reservation> getReservationByFoyerId(@RequestParam Date anneeUniversite, @RequestParam String nomUniversite) {
+    public List<Reservation> getReservationByFoyerId(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy")  Date anneeUniversite, @RequestParam String nomUniversite) {
         return this.reservationService.getReservationParAnneeUniversitaireEtNomUniversite(anneeUniversite, nomUniversite);
 
     }

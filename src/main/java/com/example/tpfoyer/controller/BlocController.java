@@ -3,9 +3,7 @@ package com.example.tpfoyer.controller;
 import com.example.tpfoyer.entity.Bloc;
 import com.example.tpfoyer.service.BlocServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,11 @@ public class BlocController {
     @GetMapping
     public List<Bloc> getAllBloc() {
         return blocService.getAllBloc();
+    }
+
+    @PostMapping("/affecter-chambre-a-bloc/{blocId}")
+    Bloc affecterChambreAbloc(@PathVariable Long blocId,@RequestBody List<Long> numChambre)
+    {
+        return this.blocService.affecterChambreABloc(numChambre,blocId);
     }
 }

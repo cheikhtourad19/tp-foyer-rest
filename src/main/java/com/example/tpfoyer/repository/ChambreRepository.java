@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ChambreRepository extends JpaRepository<Chambre, Long> {
-    //List<Chambre> findByNumerochambre(List <Long> numerochambre);
+    List<Chambre> findByNumeroChambreIn(List <Long> numerochambre);
 
     List<Chambre> findAllByBloc(Bloc bloc);
     Chambre findByReservationContains(Reservation reservation);
