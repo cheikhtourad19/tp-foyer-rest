@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    agent     agent :{ label 'slave_build_spring' }
+
 
     tools {
         jdk 'JAVA_HOME'
