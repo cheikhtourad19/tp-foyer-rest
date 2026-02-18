@@ -1,5 +1,5 @@
 pipeline {
-   agent :{ label 'slave_build_spring' }
+   agent { label 'slave_build_spring' }
 
 
     tools {
