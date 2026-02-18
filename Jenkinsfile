@@ -1,9 +1,12 @@
 pipeline {
    agent { label 'slave_build_spring' }
 
-
+   environment {
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-arm64/bin/java'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+    }
     tools {
-        jdk 'JAVA_HOME'
+        
         maven 'M2_HOME'
     }
 
