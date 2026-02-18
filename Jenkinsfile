@@ -2,11 +2,11 @@ pipeline {
    agent { label 'slave_build_spring' }
 
    environment {
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-arm64/bin/java'
+        // CORRECTED: JAVA_HOME should point to the directory, not the executable
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-arm64'
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
     tools {
-        
         maven 'M2_HOME'
     }
 
@@ -21,12 +21,11 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'java -version'
+                sh 'echo "JAVA_HOME is: $JAVA_HOME"'
                 sh 'mvn -version'
                 sh 'mvn clean package -DskipTests'
             }
         }
-
-       
     }
 
     post {
