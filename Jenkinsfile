@@ -4,6 +4,8 @@ pipeline {
     environment {
         JAVA_HOME = '/usr/lib/jvm/java-21-openjdk-arm64'
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
+        SONAR_SERVER = 'SonarServer'  // <-- Must match Jenkins SonarQube server name
+    
     }
 
     stages {
@@ -23,9 +25,11 @@ pipeline {
             }
         }
 
-        stage('SonarQube') {
+       stage('SonarQube Analysis') {
             steps {
-                sh 'mvn sonar:sonar'
+                withSonarQubeEnv("${SONAR_SERVER}") {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
     }
