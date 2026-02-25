@@ -1,5 +1,6 @@
 pipeline {
-   agent { label 'slave_build_spring' }
+   agent any
+   //{ label 'slave_build_spring' }
 
    environment {
         // CORRECTED: JAVA_HOME should point to the directory, not the executable
