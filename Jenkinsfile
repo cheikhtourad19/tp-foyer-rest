@@ -2,9 +2,8 @@ pipeline {
     agent any
 
     environment {
-        // Java installé dans la VM
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-arm64'
-        PATH = "${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${env.PATH}"
+        JAVA_HOME = '/usr/lib/jvm/java-21-openjdk-amd64'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
 
     stages {
@@ -18,7 +17,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "JAVA_HOME: $JAVA_HOME"'
-                sh 'echo "MAVEN_HOME: $MAVEN_HOME"'
                 sh 'java -version'
                 sh 'mvn -version'
                 sh 'mvn clean package -DskipTests'
